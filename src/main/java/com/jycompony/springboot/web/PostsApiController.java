@@ -23,6 +23,12 @@ public class PostsApiController {
         return postsService.update(id, requestDto);
     }
 
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id) {
+        postsService.delete(id);
+        return id;
+    }
+
     // 아래 동작 딱히 안함.
     @GetMapping("/api/v1/posts/{id}")
     public PostsResponseDto findById (@PathVariable Long id) {
